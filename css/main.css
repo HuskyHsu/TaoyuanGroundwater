@@ -20,6 +20,26 @@ body {
     stroke-width: 1.5px;
 }
 
+.line_saveLine1 {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.line_saveLine2 {
+    fill: none;
+    stroke: orange;
+    stroke-width: 3px;
+}
+
+
+.line_saveLine3 {
+    fill: none;
+    stroke: green;
+    stroke-width: 3px;
+}
+
+
 .dot {
     fill: white;
     stroke: red;

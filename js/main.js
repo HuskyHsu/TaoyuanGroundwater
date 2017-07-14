@@ -14,7 +14,14 @@ let svg = d3.select("svg.well")
 let path = svg.append("path")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-
+let path_save1 = svg.append("path")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    
+let path_save2 = svg.append("path")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    
+let path_save3 = svg.append("path")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // let x = d3.scaleLinear()
 //     .range([0, width]);
@@ -39,6 +46,23 @@ svg.append("text")
       .attr("dy", "2em")
       .style("font-weight", "bold")
       .text("水位(m)");
+
+svg.append("text")
+      .attr("dy", "8em")
+      .attr("transform", `translate(${width}, ${margin.top})`)
+      .style("font-weight", "bold")
+      .text("安全水位");
+svg.append("text")
+      .attr("dy", "20em")
+      .attr("transform", `translate(${width}, ${margin.top})`)
+      .style("font-weight", "bold")
+      .text("下限水位");
+svg.append("text")
+      .attr("dy", "30em")
+      .attr("transform", `translate(${width}, ${margin.top})`)
+      .style("font-weight", "bold")
+      .text("嚴重下限水位");     
+
 
 let xAxis = svg.append("g")
     .attr("class", "axis axis--x")
@@ -71,6 +95,30 @@ let data = d3.range(40).map(i => {
     };
 });
 
+let saveLine1 = [{
+        date: new Date(data[0].date.getTime()),
+        y: 33
+    }, {
+        date: new Date(data[data.length - 1].date.getTime()),
+        y: 33
+    }];
+
+let saveLine2 = [{
+        date: new Date(data[0].date.getTime()),
+        y: 35
+    }, {
+        date: new Date(data[data.length - 1].date.getTime()),
+        y: 35
+    }];
+
+let saveLine3 = [{
+        date: new Date(data[0].date.getTime()),
+        y: 38
+    }, {
+        date: new Date(data[data.length - 1].date.getTime()),
+        y: 38
+    }];
+
 x.domain(d3.extent(data, data => data.date));
 
 let Yextent = d3.extent(data, data => data.y);
@@ -92,6 +140,20 @@ path.datum(data)
     .attr("class", "line")
     .attr("d", line);
 
+path_save1.datum(saveLine1)
+    .transition()
+    .attr("class", "line_saveLine1")
+    .attr("d", line);
+
+path_save2.datum(saveLine2)
+    .transition()
+    .attr("class", "line_saveLine2")
+    .attr("d", line);
+
+path_save3.datum(saveLine3)
+    .transition()
+    .attr("class", "line_saveLine3")
+    .attr("d", line);
 
 
 setInterval(function(){
@@ -107,6 +169,31 @@ setInterval(function(){
         }
     )
 
+
+    saveLine1 = [{
+            date: new Date(data[0].date.getTime()),
+            y: 33
+        }, {
+            date: new Date(data[data.length - 1].date.getTime()),
+            y: 33
+        }];
+
+    saveLine2 = [{
+            date: new Date(data[0].date.getTime()),
+            y: 35
+        }, {
+            date: new Date(data[data.length - 1].date.getTime()),
+            y: 35
+        }];
+
+    saveLine3 = [{
+            date: new Date(data[0].date.getTime()),
+            y: 38
+        }, {
+            date: new Date(data[data.length - 1].date.getTime()),
+            y: 38
+        }];
+
     x.domain(d3.extent(data, data => data.date));
     let Yextent = d3.extent(data, data => data.y);
     y.domain([Yextent[0] - 3, Yextent[1] + 3]);
@@ -115,6 +202,21 @@ setInterval(function(){
     path.datum(data)
         .transition()
         .attr("class", "line")
+        .attr("d", line);
+
+    path_save1.datum(saveLine1)
+        .transition()
+        .attr("class", "line_saveLine1")
+        .attr("d", line);
+
+    path_save2.datum(saveLine2)
+        .transition()
+        .attr("class", "line_saveLine2")
+        .attr("d", line);
+
+    path_save3.datum(saveLine3)
+        .transition()
+        .attr("class", "line_saveLine3")
         .attr("d", line);
 
     yAxis.call(d3.axisLeft(y));
@@ -184,6 +286,12 @@ svg2.append("g")
 // add the y Axis
 svg2.append("g")
     .call(d3.axisLeft(y2));
+
+svg2.append("text")
+      .attr("x", "0em")
+      .attr("dy", "-1em")
+      .style("font-weight", "bold")
+      .text("核發水井數口數");
 
 
 var app = new Vue({
