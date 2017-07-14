@@ -473,12 +473,11 @@ var well = [["115633", "台灣科慕股份有限公司", 121.1052791, 25.0450001
 
 var mymap = L.map('mapid').setView([24.87, 121.21], 11);
 
-
-// var streets = L.tileLayer('https://mt{s}.google.com/vt/x={x}&y={y}&z={z}&hl=zh-TW', {
-//         id : 'streets',
-//         subdomains : "012",
-//         attribution : 'Map data: &copy; Google'
-//     }).addTo(mymap);
+var streets = L.tileLayer('https://mt{s}.google.com/vt/x={x}&y={y}&z={z}&hl=zh-TW', {
+        id : 'streets',
+        subdomains : "012",
+        attribution : 'Map data: &copy; Google'
+    }).addTo(mymap);
 
 L.geoJSON(Taoyuan, {
     style: {

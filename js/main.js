@@ -120,7 +120,7 @@ setInterval(function(){
     yAxis.call(d3.axisLeft(y));
     xAxis.call(d3.axisBottom(x));
 
-}, 300)
+}, 700)
 
 
 
