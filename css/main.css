@@ -1,0 +1,38 @@
+body {
+    font: 10px sans-serif;
+    background-color: lightskyblue;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.area {
+    fill: lightsteelblue;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+.dot {
+    fill: white;
+    stroke: red;
+    stroke-width: 1.5px;
+}
+
+#mapid {
+    height: 85VH;
+}
+
+.bar { fill: steelblue; }
+
+.leaflet-container {
+    /* background: #ECF5FF; */
+    background: #fff;
+}

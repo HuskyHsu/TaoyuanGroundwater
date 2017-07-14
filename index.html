@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>桃園智慧地下水展示平台</title>
+
+<link rel="stylesheet" href="css/bulma.min.css">
+<link rel="stylesheet" href="css/leaflet.css" />
+<link rel="stylesheet" href="css/main.css" />
+
+</head>
+<body>
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-12">
+    <div class="tile">
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">桃園市水表裝設地圖</p>
+          <div id="mapid"></div>
+        </article>
+      </div>
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child box">
+          <div id="app">
+            <p class="title">{{ well }}水位時序圖</p>
+          </div>
+          <svg class="well"></svg>
+        </article>
+        <article class="tile is-child box">
+          <p class="title">桃園市水井和發量</p>
+          <svg class="wellvalue"></svg>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/d3.v4.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/main.js"></script>
+<script src="js/main2.js"></script>
+
+</body>
+</html>
